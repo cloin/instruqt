@@ -9,7 +9,12 @@ RUN dnf -y update && dnf -y install \
     vim \
     unzip \
     curl \
-    git
+    git \
+    dnf-plugins-core
+
+# install packer
+dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+dnf -y install packer
 
 # install requirements
 COPY requirements.txt requirements.txt
